@@ -19,6 +19,8 @@
     --line:#d7d9cf;
   }
   *{ box-sizing:border-box; }
+  html{ width:100%; overflow-x:hidden; }
+  img{ max-width:100%; }
   body{
     margin:0;
     background:var(--paper);
@@ -33,9 +35,6 @@
     padding:72px 24px 56px;
     text-align:center;
   }
-
-  .logo{ margin-bottom:18px; }
-  .logo svg{ display:block; margin:0 auto; }
 
   .eyebrow{
     font-family:'IBM Plex Mono', monospace;
@@ -129,6 +128,10 @@
   .btn:hover{ background:var(--crimson-soft); }
   .btn:active{ transform:scale(0.98); }
   .btn.hidden{ display:none; }
+  .btn:focus-visible{
+    outline:3px solid var(--crimson-soft);
+    outline-offset:2px;
+  }
 
   #formWrap{
     display:none;
@@ -201,7 +204,9 @@
 
   .credit{
     display:inline-flex;
+    flex-wrap:wrap;
     align-items:center;
+    justify-content:center;
     gap:10px;
     background:var(--card);
     border:1px solid var(--line);
@@ -220,27 +225,27 @@
     display:block;
   }
 
-  @media (max-width:480px){
+  @media (max-width:600px){
     .wrap{ padding:52px 18px 48px; }
+    .consent{ padding:18px 18px; }
+    .btn{ width:100%; padding:15px 0; }
     .form-card.loaded{ max-height:5300px; }
     .form-card iframe{ height:5200px; }
+  }
+
+  @media (max-width:360px){
+    .consent li{ font-size:13px; }
+    .intro{ font-size:14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
   }
 </style>
 </head>
 <body>
 
   <div class="wrap">
-
-    <!-- Simple original monogram standing in for the KNUST crest.
-         Swap this <svg> block for <img src="knust-logo.png" alt="KNUST" width="64">
-         if you have rights to use the official university logo file. -->
-    <div class="logo">
-      <svg width="60" height="60" viewBox="0 0 60 60">
-        <circle cx="30" cy="30" r="28" fill="#fbfbf8" stroke="#9c2d44" stroke-width="1.5"/>
-        <text x="30" y="27" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" font-weight="600" fill="#9c2d44" letter-spacing="0.5">KNUST</text>
-        <text x="30" y="39" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="6" fill="#5b6470" letter-spacing="0.5">1952</text>
-      </svg>
-    </div>
 
     <p class="eyebrow">Academic Coursework Project</p>
     <h1>Factors Contributing to Low CWA</h1>
